@@ -3,30 +3,24 @@ records:
     recordCount: 2
     fields:
       - name: record type 
-        type: String 
         values: [A1]
         randomness: false 
       - name: id
-        type: Long 
         values: [0, 1000, 999]
         randomness: true 
       - name: login
-        type: String
         values: [user, admin]
         randomness: true 
   B2:
     recordCount: 5
     fields:
       - name: record type
-        type: String
         values: [B2]
         randomness: false 
       - name: login 
-        type: String 
         values: [user, admin]
         randomness: true
       - name: currency 
-        type: String
         values: [Euro, Pln]
         randomness: true 
 outputFilePath: /tmp/generated_file.csv

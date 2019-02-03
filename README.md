@@ -18,8 +18,6 @@ Project require `Java 11`
 
 `fields` - decribe each column of output file related with record
 
-`type` - can be numerical or text (work in progress). For now only text values are supported
-
 `values` - values used to placed in output file. 
 
 `randomness` - required values are `true/false` and tell about which value should be placed in output file. Random or ordered from key `values`
@@ -33,22 +31,18 @@ records:
     recordCount: 2
     fields:
       - name: id
-        type: Long 
         values: [0, 1000, 999]
         randomness: true 
       - name: login
-        type: String
         values: [user, admin]
         randomness: true 
   B2:
     recordCount: 5
     fields:
       - name: login 
-        type: String 
         values: [user, admin]
         randomness: true
       - name: currency 
-        type: String
         values: [Euro, Pln]
         randomness: true 
 outputFilePath: /tmp/generated_file.csv

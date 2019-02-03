@@ -37,7 +37,6 @@ class Record {
 @Getter
 class Field {
   private String name;
-  private String type;
   private List<String> values = new ArrayList();
   private boolean randomness;
 
