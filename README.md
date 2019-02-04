@@ -2,7 +2,8 @@
 Generates files with complex structure
 
 # Requirment
-Project require `Java 11`
+- Project require `Java 11`
+- Java compiler `annotation processor` needs to be enabled (for example in intellij settings)
 
 # How to build
         ./gradlew build
