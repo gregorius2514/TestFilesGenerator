@@ -8,6 +8,6 @@ public class Main {
     
     var generatedFileContent = outputFileGenerator.generateOutputFile();
 
-    System.out.println("Generated output file content:\n" + generatedFileContent);
+    System.out.println("Generated output file content:\n" + generatedFileContent.toString().replace(",", "\n"));
   }
 }

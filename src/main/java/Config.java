@@ -48,14 +48,18 @@ class Field {
   }
 
   String getOrderedValue() {
-    if (counter < values.size()) {
-      String value = values.get(counter);
-      counter++;
-      return value;
+    if (values.isEmpty()) {
+      return "";
     }
-    if (!values.isEmpty()) {
-      return values.get(0);
+    return increaseCounterAndReturnValueFromFieldConfig();
+  }
+
+  private String increaseCounterAndReturnValueFromFieldConfig() {
+    if (counter >= values.size()) {
+      counter = 0;
     }
-    return "";
+    String value = values.get(counter);
+    counter++;
+    return value;
   }
 }
