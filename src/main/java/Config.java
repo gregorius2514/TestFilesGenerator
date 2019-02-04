@@ -1,3 +1,4 @@
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
@@ -37,10 +38,24 @@ class Record {
 @Getter
 class Field {
   private String name;
-  private List<String> values = new ArrayList();
+  private List<String> values = new ArrayList<>();
   private boolean randomness;
+
+  @JsonIgnore private int counter = 0;
 
   private Field() {
     // empty constructor used by jackson
+  }
+
+  String getOrderedValue() {
+    if (counter < values.size()) {
+      String value = values.get(counter);
+      counter++;
+      return value;
+    }
+    if (!values.isEmpty()) {
+      return values.get(0);
+    }
+    return "";
   }
 }

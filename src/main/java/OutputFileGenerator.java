@@ -22,7 +22,7 @@ class OutputFileGenerator {
   private static final String NEW_LINE_SEPARATOR = "\r\n";
 
   private Logger logger = Logger.getLogger(getClass().getName());
-  
+
   private Map<String, Record> recordsConfig;
   private Path outputFilePath;
 
@@ -70,16 +70,18 @@ class OutputFileGenerator {
   }
 
   private String getGeneratedRecordFieldValue(Field fieldConfig) {
-    var fieldConfiguredValues = new ArrayList<>(fieldConfig.getValues());
-    if (fieldConfiguredValues.isEmpty()) {
+    if (fieldConfig.getValues().isEmpty()) {
       return "";
     }
 
     if (fieldConfig.isRandomness()) {
+      var fieldConfiguredValues = new ArrayList<>(fieldConfig.getValues());
       shuffle(fieldConfiguredValues);
+      return fieldConfiguredValues.get(0);
     }
-    // FIXME [szymczuch] Gdy jest ustawione randomnesss = false nadal pobierany jest pierwszy element
-    return fieldConfiguredValues.get(0);
+    // FIXME [szymczuch] Gdy jest ustawione randomnesss = false nadal pobierany jest pierwszy
+    // element
+    return fieldConfig.getOrderedValue();
   }
 
   @SneakyThrows
