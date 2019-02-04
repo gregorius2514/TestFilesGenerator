@@ -18,7 +18,7 @@ import static java.util.stream.Collectors.toList;
 @Value
 class OutputFileGenerator {
 
-  private static final String CSV_FILE_SEPARATOR = ",";
+  private static final String CSV_FILE_SEPARATOR = "\t";
   private static final String NEW_LINE_SEPARATOR = "\r\n";
 
   private Logger logger = Logger.getLogger(getClass().getName());
@@ -78,6 +78,7 @@ class OutputFileGenerator {
     if (fieldConfig.isRandomness()) {
       shuffle(fieldConfiguredValues);
     }
+    // FIXME [szymczuch] Gdy jest ustawione randomnesss = false nadal pobierany jest pierwszy element
     return fieldConfiguredValues.get(0);
   }
 
